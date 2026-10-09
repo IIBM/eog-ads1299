@@ -1,0 +1,30 @@
+[project]
+name = "eog-bci"
+version = "0.1.0"
+description = "EOG-based BCI calibration and live control application"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "PySide6>=6.6",
+    "pyserial>=3.5",
+    "torch>=2.2",
+]
+
+[project.scripts]
+eog-bci = "eog_app.recorder:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["eog_app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
